@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Wall</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f0f0f0;
+				text-align: center;
+        padding-bottom: 20px;
+			}
+
+			.visitors-container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				margin: 20px;
+			}
+
+			.visitor {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				background-color: #fff;
+				border-radius: 10px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				margin: 10px;
+				padding: 10px;
+				width: 100%;
+				max-width: 350px;
+			}
+
+			.visitor img {
+				border-radius: 10px;
+				width: 100%;
+				max-width: 400px;
+				height: auto;
+				object-fit: cover;
+			}
+
+			@media only screen and (min-width: 768px) {
+				.visitor {
+					width: 48%;
+				}
+			}
+
+			.visitor-info {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-top: 10px;
+			}
+
+			.visitor h2 {
+				margin: 0;
+				font-size: 24px;
+				font-weight: bold;
+				text-align: center;
+				text-transform: capitalize;
+			}
+
+			.visitor p {
+				margin: 5px 0 0;
+				font-size: 18px;
+				text-align: center;
+			}
+
+      a {
+        font-size: 2rem;
+      }
+
+      #addto {
+        background-color: #544caf;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-decoration: none;
+      }
+		</style>
+	</head>
+	<body>
+    <h1>Your Guest Wall</h1>
+    <h2>All time guests: {{visitors|length}}</h2>
+		<div class="visitors-container">
+			{% for visitor in visitors %}
+			<div class="visitor">
+				<img
+					src="static/{{ visitor['imageid'] }}.jpg"
+					alt="{{ visitor['name'] }}"
+				/>
+				<div class="visitor-info">
+					<h2>{{ visitor['name'] }}</h2>
+					<p>{{ visitor['caption'] }}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<a href="/" id="addto">add to the wall</a>
+	</body>
+</html>

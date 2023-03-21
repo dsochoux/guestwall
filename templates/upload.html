@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Upload Image</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 36px;
+      }
+
+      form {
+        margin: 0 auto;
+        max-width: 600px;
+        width: 90%;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      input[type="text"], input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      #towall {
+        background-color: #544caf;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-decoration: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>New Guest</h1>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+      <label for="caption">Say something!</label>
+      <input type="text" name="caption" id="caption" placeholder="the date will be added">
+      <label for="image">Take a selfie</label>
+      <input type="file" name="image" id="image" accept="image/*" required>
+      <input type="submit" value="add to the wall">
+      <a href="/wall" id="towall">show me the wall</a>
+    </form>
+  </body>
+</html>
+
